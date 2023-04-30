@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class Assignment {
+
+    //code for capitals which we can access via key value pair
     private static final HashMap<String, String> CAPITALS_MAP = new HashMap<String, String>() {{
         put("Oslo", "box1");
         put("Madrid", "box7");
@@ -21,6 +23,7 @@ public class Assignment {
         put("Stockholm", "box2");
     }};
 
+    //code for country list which we can access via key value pair
     private static final HashMap<String, String> COUNTRIES_MAP = new HashMap<String, String>() {{
         put("Norway", "box101");
         put("Italy", "box106");
@@ -34,16 +37,19 @@ public class Assignment {
     protected static WebElement element;
     protected static WebElement element1;
 
+    //code to convert rgba to hexa
     public static String rgbaToHex(int r, int g, int b, int a) {
         return String.format("#%02X%02X%02X%02X", r, g, b, a);
     }
 
+    //code to parse rgba value to r,g,b,a
     public static String rgbaToHex(String rgba) {
         String[] values = rgba.substring(5, rgba.length() - 1).split(",");
         return rgbaToHex(Integer.parseInt(values[0].trim()), Integer.parseInt(values[1].trim()),
                 Integer.parseInt(values[2].trim()), Integer.parseInt(values[3].trim()));
     }
 
+    //code for drag and drop operation
     private static void doDragnDropCapitals(String from, String to) {
         element = driver.findElement(By.xpath("//div[@class='dragableBox' and contains(text(),'" + from + "') and @id='" + CAPITALS_MAP.get(from) + "']"));
         element1 = driver.findElement(By.xpath("//div[@id='" + COUNTRIES_MAP.get(to) + "' and contains(text(),'" + to + "')]"));
@@ -59,6 +65,7 @@ public class Assignment {
         }
         System.out.println(element.getCssValue("background-color"));
     }
+    //code for moving captitals
     private static void moveCapitalsBack() {
         System.out.println("Moving all the capitals back...");
         Actions actions = new Actions(driver);
