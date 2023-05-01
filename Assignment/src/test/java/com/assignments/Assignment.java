@@ -74,6 +74,7 @@ public class Assignment {
             String xpath = "//div[@id='" + CAPITALS_MAP.get(from) + "']";
             element = driver.findElement(By.xpath(xpath));
             actions.clickAndHold(element).dragAndDrop(element, element1).build().perform();
+            //
         }
     }
     public static void main(String[] args) {
